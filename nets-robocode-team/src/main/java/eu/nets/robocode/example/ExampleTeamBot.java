@@ -1,4 +1,4 @@
-package eu.nets.robocode.team;
+package eu.nets.robocode.example;
 
 import eu.nets.robocode.Position;
 import eu.nets.robocode.TeamBot;

@@ -2,8 +2,6 @@ package eu.nets.robocode;
 
 import eu.nets.robocode.message.*;
 import robocode.DeathEvent;
-import robocode.RobotDeathEvent;
-import robocode.ScannedRobotEvent;
 
 import java.awt.*;
 import java.io.IOException;
@@ -27,7 +25,7 @@ public abstract class TeamLeader extends TeamMember
         setColors(getColor(), Color.ORANGE, Color.ORANGE, getColor(), Color.GREEN);
         toTeam(new LeaderMessage(getName(), getColor()));
         if (getTeammates().length != 2) {
-            throw new IllegalStateException("Incorrect team size -> " + getTeammates().length + ".");
+            throw new IllegalStateException("Incorrect example size -> " + getTeammates().length + ".");
         }
         doInit();
     }
