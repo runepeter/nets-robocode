@@ -95,7 +95,6 @@ public abstract class TeamMember extends TeamRobot
     @Override
     public final void onMessageReceived(MessageEvent e)
     {
-        out.println(e.getMessage());
         if (e.getMessage() instanceof Message)
         {
             Message message = (Message) e.getMessage();
