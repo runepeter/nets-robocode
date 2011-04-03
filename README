@@ -6,6 +6,8 @@ for laget, og så skal det opprettes et Robocode lag med en leder og to
 medlemmer. Laget skal ved hjelp av autonome bevegelser og/eller lagarbeid
 gå til krig mot andre lag.
 
+Robocode -> http://robocode.sourceforge.net/ (THANK YOU!)
+
 Modulen nets-robocode-team inneholder allerede et eksempellag som kan benyttes
 som utgangspunkt. 
 
