@@ -1,4 +1,4 @@
 team.description=Example Team
-team.members=eu.nets.robocode.team.ExampleTeamLeader*,eu.nets.robocode.team.ExampleTeamDroid*,eu.nets.robocode.team.ExampleTeamBot*
+team.members=eu.nets.robocode.example.ExampleTeamLeader*,eu.nets.robocode.example.ExampleTeamDroid*,eu.nets.robocode.example.ExampleTeamBot*
 team.author.name=
 robocode.version=\ 1.7.2.2
