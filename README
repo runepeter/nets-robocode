@@ -1,0 +1,20 @@
+=== Nets Norway AS :: RoboCode ==
+
+Dette prosjektet inneholder opplegget for en Robocode-konkurranse til bruk
+på Nets Utviklerdag 2011. Hvert lag får utdelt en "farge" som skal gjelde
+for laget, og så skal det opprettes et Robocode lag med en leder og to
+medlemmer. Laget skal ved hjelp av autonome bevegelser og/eller lagarbeid
+gå til krig mot andre lag.
+
+Modulen nets-robocode-team inneholder allerede et eksempellag som kan benyttes
+som utgangspunkt. 
+
+1. Kjøre Robocode-kamp fra Maven.
+
+mvn -Pbattle -N
+
+2. Kjøre Robocode-kamp fra IDE
+
+Kjør klassen robocode.Robocode (med work directory nets-robocode).
+
+Enjoy!
