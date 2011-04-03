@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>eu.nets.robocode</groupId>
+  <artifactId>nets-robocode</artifactId>
+  <version>0.1-SNAPSHOT</version>
+  <packaging>pom</packaging>
+
+  <name>Nets Norway AS :: Robocode</name>
+
+  <properties>
+    <robocode.version>1.7.2.2</robocode.version>
+  </properties>
+
+  <modules>
+    <module>nets-robocode-core</module>
+    <module>nets-robocode-team</module>
+  </modules>
+
+  <repositories>
+    <repository>
+      <id>embedded</id>
+      <name>Embedded Maven 2 Repository</name>
+      <url>file://${basedir}/lib/</url>
+    </repository>
+  </repositories>
+
+
+  <profiles>
+    <profile>
+      <id>battle</id>
+      <build>
+        <defaultGoal>antrun:run</defaultGoal>
+        <plugins>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-antrun-plugin</artifactId>
+            <version>1.6</version>
+            <configuration>
+              <target>
+                <property name="compile_classpath" refid="maven.compile.classpath"/>
+                <property name="runtime_classpath" refid="maven.runtime.classpath"/>
+                <property name="test_classpath" refid="maven.test.classpath"/>
+                <property name="plugin_classpath" refid="maven.plugin.classpath"/>
+
+                <echo message="compile classpath: ${compile_classpath}"/>
+                <echo message="runtime classpath: ${runtime_classpath}"/>
+                <echo message="test classpath:    ${test_classpath}"/>
+                <echo message="plugin classpath:  ${plugin_classpath}"/>
+
+                <java classname="eu.nets.robocode.boot.NetsRobocode" fork="true">
+                  <classpath>
+                    <pathelement path="${plugin_classpath}"/>
+                    <fileset dir="${basedir}/lib">
+                      <include name="*.jar"/>
+                    </fileset>
+                  </classpath>
+                </java>
+              </target>
+            </configuration>
+            <dependencies>
+              <dependency>
+                <groupId>${project.groupId}</groupId>
+                <artifactId>nets-robocode-core</artifactId>
+                <version>${project.version}</version>
+              </dependency>
+              <dependency>
+                <groupId>commons-collections</groupId>
+                <artifactId>commons-collections</artifactId>
+                <version>3.2.1</version>
+              </dependency>
+              <dependency>
+                <groupId>commons-lang</groupId>
+                <artifactId>commons-lang</artifactId>
+                <version>2.5</version>
+              </dependency>
+              <dependency>
+                <groupId>commons-io</groupId>
+                <artifactId>commons-io</artifactId>
+                <version>1.4</version>
+              </dependency>
+            </dependencies>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+  </profiles>
+
+</project>
+
