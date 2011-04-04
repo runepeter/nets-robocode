@@ -12,8 +12,17 @@
   </parent>
 
   <artifactId>nets-robocode-team</artifactId>
+  <packaging>pom</packaging>
 
   <name>Nets Norway AS :: Robocode :: Team</name>
+
+  <modules>
+    <module>red-team</module>
+    <module>blue-team</module>
+    <module>green-team</module>
+    <module>yellow-team</module>
+    <module>pink-team</module>
+  </modules>
 
   <dependencies>
     <dependency>
@@ -36,7 +45,7 @@
       <artifactId>robocode</artifactId>
       <version>${robocode.version}</version>
       <scope>system</scope>
-      <systemPath>${basedir}/../lib/robocode.jar</systemPath>
+      <systemPath>${basedir}/../../lib/robocode.jar</systemPath>
     </dependency>
   </dependencies>
 

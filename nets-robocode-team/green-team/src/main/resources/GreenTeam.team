@@ -1,0 +1,4 @@
+team.description=Green Team
+team.members=eu.nets.robocode.green.GreenTeamLeader*,eu.nets.robocode.green.GreenTeamDroid*,eu.nets.robocode.green.GreenTeamBot*
+team.author.name=
+robocode.version=\ 1.7.2.2

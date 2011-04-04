@@ -1,0 +1,4 @@
+team.description=Red Team
+team.members=eu.nets.robocode.red.RedTeamLeader*,eu.nets.robocode.red.RedTeamDroid*,eu.nets.robocode.red.RedTeamBot*
+team.author.name=
+robocode.version=\ 1.7.2.2

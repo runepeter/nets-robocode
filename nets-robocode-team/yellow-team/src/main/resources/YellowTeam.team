@@ -1,0 +1,4 @@
+team.description=Yellow Team
+team.members=eu.nets.robocode.yellow.YellowTeamLeader*,eu.nets.robocode.yellow.YellowTeamDroid*,eu.nets.robocode.yellow.YellowTeamBot*
+team.author.name=
+robocode.version=\ 1.7.2.2

@@ -1,0 +1,4 @@
+team.description=Pink Team
+team.members=eu.nets.robocode.pink.PinkTeamLeader*,eu.nets.robocode.pink.PinkTeamDroid*,eu.nets.robocode.pink.PinkTeamBot*
+team.author.name=
+robocode.version=\ 1.7.2.2
