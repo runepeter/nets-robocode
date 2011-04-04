@@ -35,8 +35,8 @@ public class BlueTeamLeader extends TeamLeader
     {
         this.waypointIterator = new LoopingIterator(Arrays.asList(
                 new Position(25, 25),
-                new Position(getBattleFieldWidth() - 25, 25),
                 new Position(getBattleFieldWidth() - 25, getBattleFieldHeight() - 25),
+                new Position(getBattleFieldWidth() - 25, 25),
                 new Position(25, getBattleFieldHeight() - 25)
         ));
         this.behaviourStack.push(new FollowWaypointsBehaviour(waypointIterator.next()));

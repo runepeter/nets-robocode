@@ -8,6 +8,7 @@ import eu.nets.robocode.message.PositionMessage;
 import eu.nets.robocode.message.TargetEnemyMessage;
 import eu.nets.robocode.util.BotUtils;
 import robocode.BulletMissedEvent;
+import robocode.RobotDeathEvent;
 import robocode.ScannedRobotEvent;
 import robocode.util.Utils;
 
@@ -40,7 +41,11 @@ public class YellowTeamBot extends TeamBot
         if (message instanceof PositionMessage) {
 
             PositionMessage positionMessage = (PositionMessage) message;
-            enemyMap.put(positionMessage.getRobotId(), positionMessage.getPosition());    
+            enemyMap.put(positionMessage.getRobotId(), positionMessage.getPosition());
+
+            if (positionMessage.getRobotId().contains("Leader")) {
+                behaviourStack.push(new AttackBehaviour(positionMessage.getRobotId()));
+            }
         }
     }
 
@@ -60,6 +65,12 @@ public class YellowTeamBot extends TeamBot
     public void onBulletMissed(BulletMissedEvent event)
     {
         behaviourStack.push(new ScanBehaviour());
+    }
+
+    @Override
+    public void onEnemyDied(RobotDeathEvent event)
+    {
+        enemyMap.remove(event.getName());
     }
 
     @Override

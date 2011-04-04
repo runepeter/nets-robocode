@@ -8,6 +8,7 @@ import eu.nets.robocode.message.PositionMessage;
 import eu.nets.robocode.message.TargetEnemyMessage;
 import eu.nets.robocode.util.BotUtils;
 import robocode.BulletMissedEvent;
+import robocode.RobotDeathEvent;
 import robocode.ScannedRobotEvent;
 import robocode.util.Utils;
 
@@ -37,10 +38,11 @@ public class RedTeamBot extends TeamBot
             behaviourStack.push(new AttackBehaviour(targetMessage.getEnemyId()));
         }
 
-        if (message instanceof PositionMessage) {
+        if (message instanceof PositionMessage)
+        {
 
             PositionMessage positionMessage = (PositionMessage) message;
-            enemyMap.put(positionMessage.getRobotId(), positionMessage.getPosition());    
+            enemyMap.put(positionMessage.getRobotId(), positionMessage.getPosition());
         }
     }
 
@@ -60,6 +62,12 @@ public class RedTeamBot extends TeamBot
     public void onBulletMissed(BulletMissedEvent event)
     {
         behaviourStack.push(new ScanBehaviour());
+    }
+
+    @Override
+    public void onEnemyDied(RobotDeathEvent event)
+    {
+        enemyMap.remove(event.getName());
     }
 
     @Override
@@ -116,7 +124,8 @@ public class RedTeamBot extends TeamBot
         }
     }
 
-    private class ScanBehaviour implements Behaviour {
+    private class ScanBehaviour implements Behaviour
+    {
         public void doIt()
         {
             turnRadarLeft(360);

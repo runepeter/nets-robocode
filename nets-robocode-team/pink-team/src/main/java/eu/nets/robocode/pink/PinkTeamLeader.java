@@ -24,7 +24,7 @@ public class PinkTeamLeader extends TeamLeader
 
     public PinkTeamLeader()
     {
-        super(Color.PINK);
+        super(Color.MAGENTA);
 
         this.enemyMap = new HashMap<String, Position>();
         this.behaviourStack = new Stack<Behaviour>();

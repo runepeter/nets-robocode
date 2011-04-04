@@ -8,10 +8,7 @@ import eu.nets.robocode.message.PositionMessage;
 import eu.nets.robocode.message.TargetEnemyMessage;
 import eu.nets.robocode.util.BotUtils;
 import org.apache.commons.collections.iterators.LoopingIterator;
-import robocode.HitByBulletEvent;
-import robocode.HitRobotEvent;
-import robocode.ScannedRobotEvent;
-import robocode.TurnCompleteCondition;
+import robocode.*;
 
 import java.awt.*;
 import java.util.*;
@@ -34,10 +31,13 @@ public class YellowTeamLeader extends TeamLeader
     protected void doInit()
     {
         this.waypointIterator = new LoopingIterator(Arrays.asList(
-                new Position(25, 25),
-                new Position(getBattleFieldWidth() - 25, 25),
                 new Position(getBattleFieldWidth() - 25, getBattleFieldHeight() - 25),
-                new Position(25, getBattleFieldHeight() - 25)
+                new Position(getBattleFieldWidth() - 25, getBattleFieldHeight() - 25),
+                new Position(getBattleFieldWidth() - 25, 25),
+                new Position(125, 25),
+                new Position(125, getBattleFieldHeight() - 25),
+                new Position(25, getBattleFieldHeight() - 25),
+                new Position(25, 25)
         ));
         this.behaviourStack.push(new FollowWaypointsBehaviour(waypointIterator.next()));
     }
@@ -75,14 +75,12 @@ public class YellowTeamLeader extends TeamLeader
     public void onHitByBullet(HitByBulletEvent event)
     {
         String attackerId = event.getBullet().getName();
-        out.println("Hit by " + attackerId + ".");
         if (enemyMap.containsKey(attackerId) && !isTeammate(attackerId))
         {
-            out.println("ENEMY!");
             toTeam(new TargetEnemyMessage(getName(), attackerId, enemyMap.get(attackerId)));
         }
     }
-
+    
     @Override
     public void behavior()
     {

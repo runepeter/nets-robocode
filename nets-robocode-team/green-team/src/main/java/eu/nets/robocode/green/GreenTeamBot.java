@@ -8,7 +8,9 @@ import eu.nets.robocode.message.PositionMessage;
 import eu.nets.robocode.message.TargetEnemyMessage;
 import eu.nets.robocode.util.BotUtils;
 import robocode.BulletMissedEvent;
+import robocode.RobotDeathEvent;
 import robocode.ScannedRobotEvent;
+import robocode.TurnCompleteCondition;
 import robocode.util.Utils;
 
 import java.util.HashMap;
@@ -37,10 +39,11 @@ public class GreenTeamBot extends TeamBot
             behaviourStack.push(new AttackBehaviour(targetMessage.getEnemyId()));
         }
 
-        if (message instanceof PositionMessage) {
-
+        if (message instanceof PositionMessage)
+        {
             PositionMessage positionMessage = (PositionMessage) message;
-            enemyMap.put(positionMessage.getRobotId(), positionMessage.getPosition());    
+            String enemyId = positionMessage.getRobotId();
+            enemyMap.put(enemyId, positionMessage.getPosition());
         }
     }
 
@@ -63,8 +66,15 @@ public class GreenTeamBot extends TeamBot
     }
 
     @Override
+    public void onEnemyDied(RobotDeathEvent event)
+    {
+        enemyMap.remove(event.getName());
+    }
+
+    @Override
     protected void behavior()
     {
+        out.println("#: " + behaviourStack.size());
         behaviourStack.peek().doIt();
         execute();
     }
@@ -106,17 +116,21 @@ public class GreenTeamBot extends TeamBot
 
             double angle = Utils.normalAbsoluteAngle(Math.atan2(position.getX() - getX(), position.getY() - getY()));
             double angleDifference = Utils.normalRelativeAngle(angle - getHeadingRadians());
+
             if (Math.abs(angleDifference) > 0)
             {
-                turnRightRadians(angleDifference);
+                setTurnRightRadians(angleDifference);
             } else
             {
                 fire(3.0);
             }
+
+            waitFor(new TurnCompleteCondition(GreenTeamBot.this));
         }
     }
 
-    private class ScanBehaviour implements Behaviour {
+    private class ScanBehaviour implements Behaviour
+    {
         public void doIt()
         {
             turnRadarLeft(360);

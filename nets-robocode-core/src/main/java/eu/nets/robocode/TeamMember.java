@@ -3,14 +3,12 @@ package eu.nets.robocode;
 import eu.nets.robocode.message.LeaderMessage;
 import eu.nets.robocode.message.Message;
 import eu.nets.robocode.message.PositionMessage;
-import robocode.MessageEvent;
-import robocode.RobotDeathEvent;
-import robocode.TeamRobot;
-import robocode.TurnCompleteCondition;
+import robocode.*;
 import robocode.util.Utils;
 
 import java.awt.*;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 public abstract class TeamMember extends TeamRobot
@@ -71,15 +69,20 @@ public abstract class TeamMember extends TeamRobot
     @Override
     public final void onRobotDeath(RobotDeathEvent event)
     {
+        out.println("Who died? " + event.getName());
+        out.println(getName() + " & " + Arrays.toString(getTeammates()));
+        
         if (leaderId != null && leaderId.equals(event.getName()))
         {
             out.println("Leader died. Time to end the war.");
             running.set(false);
         } else if (isTeammate(event.getName()))
         {
+            out.println("It's a team mate.");
             onTeamMateDied(event);
         } else
         {
+            out.println("It's an enemy.");
             onEnemyDied(event);
         }
     }

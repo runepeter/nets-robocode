@@ -34,10 +34,13 @@ public class GreenTeamLeader extends TeamLeader
     protected void doInit()
     {
         this.waypointIterator = new LoopingIterator(Arrays.asList(
-                new Position(25, 25),
-                new Position(getBattleFieldWidth() - 25, 25),
-                new Position(getBattleFieldWidth() - 25, getBattleFieldHeight() - 25),
-                new Position(25, getBattleFieldHeight() - 25)
+                new Position(25, getBattleFieldHeight() - 25),
+                new Position(25, getBattleFieldHeight() - 125),
+                new Position(getBattleFieldWidth() - 25, getBattleFieldHeight() - 125),
+                new Position(getBattleFieldWidth() - 25, 125),
+                new Position(25, 125),
+                new Position(25, 25)
+
         ));
         this.behaviourStack.push(new FollowWaypointsBehaviour(waypointIterator.next()));
     }
