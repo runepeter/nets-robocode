@@ -69,30 +69,28 @@ public abstract class TeamMember extends TeamRobot
     @Override
     public final void onRobotDeath(RobotDeathEvent event)
     {
-        out.println("Who died? " + event.getName());
-        out.println(getName() + " & " + Arrays.toString(getTeammates()));
-        
         if (leaderId != null && leaderId.equals(event.getName()))
         {
             out.println("Leader died. Time to end the war.");
             running.set(false);
+            stop(true);
         } else if (isTeammate(event.getName()))
         {
-            out.println("It's a team mate.");
             onTeamMateDied(event);
         } else
         {
-            out.println("It's an enemy.");
             onEnemyDied(event);
         }
     }
 
-    public void onTeamMateDied(RobotDeathEvent event)
+    protected void onTeamMateDied(RobotDeathEvent event)
     {
+        out.println("Team-mate '" + event.getName() + "' died.");
     }
 
-    public void onEnemyDied(RobotDeathEvent event)
+    protected void onEnemyDied(RobotDeathEvent event)
     {
+        out.println("Enemy '" + event.getName() + "' died.");
     }
 
     @Override

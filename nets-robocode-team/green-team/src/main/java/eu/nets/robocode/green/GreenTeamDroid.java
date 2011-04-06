@@ -3,6 +3,7 @@ package eu.nets.robocode.green;
 import eu.nets.robocode.TeamDroid;
 import eu.nets.robocode.message.Message;
 import robocode.HitByBulletEvent;
+import robocode.RobotDeathEvent;
 import robocode.TurnCompleteCondition;
 
 import java.util.Stack;

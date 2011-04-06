@@ -8,10 +8,7 @@ import eu.nets.robocode.message.PositionMessage;
 import eu.nets.robocode.message.TargetEnemyMessage;
 import eu.nets.robocode.util.BotUtils;
 import org.apache.commons.collections.iterators.LoopingIterator;
-import robocode.HitByBulletEvent;
-import robocode.HitRobotEvent;
-import robocode.ScannedRobotEvent;
-import robocode.TurnCompleteCondition;
+import robocode.*;
 
 import java.awt.*;
 import java.util.*;
@@ -81,7 +78,6 @@ public class GreenTeamLeader extends TeamLeader
         out.println("Hit by " + attackerId + ".");
         if (enemyMap.containsKey(attackerId) && !isTeammate(attackerId))
         {
-            out.println("ENEMY!");
             toTeam(new TargetEnemyMessage(getName(), attackerId, enemyMap.get(attackerId)));
         }
     }
