@@ -1,0 +1,8 @@
+#Battle Properties
+#Wed Apr 06 14:03:45 CEST 2011
+robocode.battle.numRounds=3
+robocode.battle.gunCoolingRate=0.1
+robocode.battleField.width=1000
+robocode.battle.rules.inactivityTime=450
+robocode.battle.selectedRobots=BlueTeam*,GreenTeam*,PinkTeam*,RedTeam*,YellowTeam*
+robocode.battleField.height=1000
