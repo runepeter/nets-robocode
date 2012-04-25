@@ -1,0 +1,4 @@
+team.description=Blue Team
+team.members=eu.nets.robocode.blue.BlueTeamLeader [1.0],eu.nets.robocode.blue.BlueTeamDroid [1.0],eu.nets.robocode.blue.BlueTeamBot [1.0]
+team.author.name=
+robocode.version=1.7.3.5

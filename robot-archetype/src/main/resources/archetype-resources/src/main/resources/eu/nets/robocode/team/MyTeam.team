@@ -1,0 +1,4 @@
+team.description=${artifactId}
+team.members=eu.nets.robocode.team.${artifactId}Leader [1.0],eu.nets.robocode.team.${artifactId}Droid [1.0],eu.nets.robocode.team.${artifactId}Bot [1.0]
+team.author.name=
+robocode.version=1.7.3.5

@@ -4,4 +4,6 @@ target/
 *.ipr
 *.iml
 *.iws
+.idea/
+config/window.properties
 

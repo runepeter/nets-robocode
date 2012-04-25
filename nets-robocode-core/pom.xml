@@ -14,10 +14,6 @@
 
   <name>Nets Norway AS :: Robocode :: Core</name>
 
-  <properties>
-    <robocode.version>1.7.2.2</robocode.version>
-  </properties>
-
   <dependencies>
     <dependency>
       <groupId>commons-collections</groupId>
@@ -27,12 +23,12 @@
     <dependency>
       <groupId>commons-lang</groupId>
       <artifactId>commons-lang</artifactId>
-      <version>2.5</version>
+      <version>2.6</version>
     </dependency>
     <dependency>
       <groupId>commons-io</groupId>
       <artifactId>commons-io</artifactId>
-      <version>1.4</version>
+      <version>2.3</version>
     </dependency>
     <dependency>
       <groupId>robocode</groupId>
@@ -41,59 +37,6 @@
       <scope>system</scope>
       <systemPath>${basedir}/../lib/robocode.jar</systemPath>
     </dependency>
-    <!--dependency>
-      <groupId>robocode</groupId>
-      <artifactId>robocode</artifactId>
-      <version>${robocode.version}</version>
-      <classifier>core</classifier>
-      <scope>provided</scope>
-    </dependency>
-    <dependency>
-      <groupId>robocode</groupId>
-      <artifactId>robocode</artifactId>
-      <version>${robocode.version}</version>
-      <classifier>ui</classifier>
-      <scope>provided</scope>
-    </dependency>
-    <dependency>
-      <groupId>robocode</groupId>
-      <artifactId>robocode</artifactId>
-      <version>${robocode.version}</version>
-      <classifier>battle</classifier>
-    </dependency>
-    <dependency>
-      <groupId>robocode</groupId>
-      <artifactId>robocode</artifactId>
-      <version>${robocode.version}</version>
-      <classifier>host</classifier>
-      <scope>provided</scope>
-    </dependency>
-    <dependency>
-      <groupId>robocode</groupId>
-      <artifactId>robocode</artifactId>
-      <version>${robocode.version}</version>
-      <classifier>repository</classifier>
-      <scope>provided</scope>
-    </dependency>
-    <dependency>
-      <groupId>robocode</groupId>
-      <artifactId>robocode</artifactId>
-      <version>${robocode.version}</version>
-      <classifier>sound</classifier>
-      <scope>provided</scope>
-    </dependency>
-    <dependency>
-      <groupId>robocode</groupId>
-      <artifactId>codesize</artifactId>
-      <version>1.1</version>
-      <scope>provided</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.picocontainer</groupId>
-      <artifactId>picocontainer</artifactId>
-      <version>2.9</version>
-      <scope>provided</scope>
-    </dependency-->
   </dependencies>
 
 </project>
